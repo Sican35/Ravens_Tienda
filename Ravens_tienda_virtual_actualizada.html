@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raven's | Artesanías con historia</title>
+<style>
+:root{
+  --dark:#241b16;
+  --brown:#6f4935;
+  --gold:#c99b54;
+  --cream:#f8f1e6;
+  --light:#fffaf2;
+  --text:#332a25;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--text);line-height:1.6}
+header{
+  position:sticky;top:0;z-index:1000;background:rgba(36,27,22,.97);
+  color:white;display:flex;align-items:center;justify-content:space-between;
+  padding:15px 6%;box-shadow:0 3px 15px #0003
+}
+.logo{font-size:28px;font-weight:bold;letter-spacing:2px;color:#f4d49a;display:flex;align-items:center;gap:10px}.logo-mark{width:40px;height:40px;border:2px solid #c99b54;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#17110e;position:relative;box-shadow:0 0 0 3px #241b16}.logo-mark:before{content:'R';font-family:Georgia,serif;font-size:25px;font-weight:bold;color:#f4d49a}.logo-mark:after{content:'';position:absolute;width:24px;height:7px;border-top:2px solid #c99b54;border-bottom:2px solid #c99b54;transform:rotate(-28deg);opacity:.9}
+.logo span{color:white}
+nav{display:flex;gap:24px;align-items:center}
+nav a{color:white;text-decoration:none;font-family:Arial,sans-serif;font-size:14px;transition:.2s}
+nav a:hover{color:#e5bd78}
+.cart-btn{border:1px solid var(--gold);background:transparent;color:white;padding:8px 14px;border-radius:20px;cursor:pointer}
+.hero{
+  min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:80px 20px;background:
+  linear-gradient(#241b16cc,#241b1699),
+  radial-gradient(circle at 50% 20%,#a87945 0,#4b3326 45%,#241b16 100%);
+  color:white;
+}
+.hero-content{max-width:850px}
+.badge{display:inline-block;border:1px solid #e3bd78;border-radius:30px;padding:8px 18px;color:#f0cf98;font-family:Arial,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:22px}
+h1{font-size:clamp(48px,8vw,88px);margin-bottom:10px}
+.hero h2{font-size:clamp(22px,3vw,34px);font-weight:normal;color:#efd09d;margin-bottom:20px}
+.hero p{font-size:19px;max-width:700px;margin:auto;color:#f8eee1}
+.btn{display:inline-block;margin-top:30px;background:var(--gold);color:#241b16;text-decoration:none;padding:13px 26px;border-radius:25px;font-family:Arial,sans-serif;font-weight:bold;border:none;cursor:pointer}
+section{padding:75px 7%}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title h2{font-size:38px;color:var(--dark)}
+.section-title p{font-family:Arial,sans-serif;color:#77665a;margin-top:8px}
+.about{background:var(--light)}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1050px;margin:auto}
+.info-card{background:white;padding:35px;border-radius:16px;border:1px solid #eadbc6;box-shadow:0 8px 25px #4a2e1512}
+.info-card h3{color:var(--brown);font-size:25px;margin-bottom:14px}
+.info-card p{font-family:Arial,sans-serif;color:#544941}
+.catalog{background:var(--cream)}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1200px;margin:auto}
+.product{
+ background:white;border-radius:16px;overflow:hidden;border:1px solid #eadbc6;
+ box-shadow:0 8px 22px #4a2e1512;display:flex;flex-direction:column
+}
+.product-img{height:210px;overflow:hidden;background:#e8dccb}.product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.product:hover .product-img img{transform:scale(1.05)}.product{position:relative}.product.featured{border:2px solid var(--gold)}.product.featured:before{content:'NUEVO';position:absolute;top:12px;left:12px;background:#c99b54;color:#241b16;padding:5px 9px;border-radius:14px;font:700 11px Arial,sans-serif;z-index:2}
+.product-info{padding:20px;display:flex;flex-direction:column;flex:1}
+.product-info h3{font-size:21px;color:var(--dark)}
+.product-info p{font-family:Arial,sans-serif;font-size:14px;color:#706057;margin:7px 0 15px}
+.price{font-weight:bold;font-size:20px;color:var(--brown);margin-top:auto}
+.add{margin-top:12px;padding:10px;border:0;border-radius:9px;background:var(--dark);color:white;cursor:pointer;font-family:Arial,sans-serif}
+.add:hover{background:var(--brown)}
+.story{background:var(--dark);color:white;text-align:center}
+.story .section-title h2{color:#f4d49a}
+.story .section-title p{color:#dfcdb9}
+.story-text{max-width:850px;margin:auto;font-size:19px}
+.contact{background:var(--light)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;max-width:1000px;margin:auto}
+.contact-box{background:white;padding:30px;border-radius:15px;border:1px solid #eadbc6}
+.contact-box h3{color:var(--brown);margin-bottom:15px}
+.contact-box p,.contact-box li{font-family:Arial,sans-serif;margin:10px 0}
+.contact-box ul{list-style:none}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:12px;border:1px solid #d8c8b5;border-radius:8px;font-family:Arial,sans-serif}
+textarea{min-height:120px;resize:vertical}
+footer{background:#17110e;color:#d9c8b3;text-align:center;padding:28px;font-family:Arial,sans-serif;font-size:14px}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:var(--light);max-width:500px;width:100%;max-height:80vh;overflow:auto;border-radius:15px;padding:28px}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.close{border:0;background:none;font-size:25px;cursor:pointer}
+.cart-item{display:flex;justify-content:space-between;border-bottom:1px solid #dfd0bf;padding:12px 0;font-family:Arial,sans-serif}
+.total{font-size:20px;font-weight:bold;margin-top:20px}
+.empty{font-family:Arial,sans-serif;color:#777}
+@media(max-width:750px){
+ header{flex-wrap:wrap;gap:10px}
+ nav{order:3;width:100%;justify-content:center;gap:13px;flex-wrap:wrap}
+ .mission-grid,.contact-grid{grid-template-columns:1fr}
+ section{padding:55px 5%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><div class="logo-mark"></div><span>Raven's</span><span>™</span></div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+    <button class="cart-btn" onclick="openCart()">🛒 Carrito (<span id="cartCount">0</span>)</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="badge">Artesanía • Cultura • Tradición</div>
+    <h1>Raven's</h1>
+    <h2>Tradiciones que viajan contigo</h2>
+    <p>Descubre productos artesanales hechos con dedicación por manos experimentadas. Llevamos el talento y la riqueza cultural de nuestros artesanos más allá de nuestras fronteras.</p>
+    <a class="btn" href="#catalogo">Ver catálogo</a>
+  </div>
+</section>
+
+<section style="padding:35px 7%;background:#f1e6d5;text-align:center"><div style="max-width:900px;margin:auto"><div style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#8a684b;font-family:Arial,sans-serif">Raven's · Artesanía guatemalteca</div><h2 style="font-size:30px;color:#241b16;margin:8px 0">Cada pieza tiene una historia</h2><p style="font-family:Arial,sans-serif;color:#67584e">Conectamos el trabajo de nuestros artesanos con personas que valoran la cultura, la calidad y lo hecho a mano.</p></div></section>
+
+<section class="about" id="nosotros">
+  <div class="section-title">
+    <h2>Quiénes somos</h2>
+    <p>Una tienda que conecta personas con historias hechas a mano.</p>
+  </div>
+  <div class="mission-grid">
+    <article class="info-card">
+      <h3>Misión</h3>
+      <p>Nuestra misión es ofrecer productos artesanales elaborados por manos de artesanos experimentados, preservando las tradiciones, técnicas y estilos que forman parte de nuestra cultura. Buscamos llevar el talento y la riqueza cultural de nuestros artesanos a diferentes partes del mundo, brindando productos auténticos, de calidad y hechos con dedicación.</p>
+    </article>
+    <article class="info-card">
+      <h3>Visión</h3>
+      <p>Nuestra visión es ser una tienda virtual reconocida a nivel nacional e internacional por promover la artesanía y la cultura guatemalteca, conectando a nuestros artesanos con clientes de todo el mundo y contribuyendo al crecimiento y valorización de su trabajo.</p>
+    </article>
+  </div>
+</section>
+
+<section class="catalog" id="catalogo">
+  <div class="section-title">
+    <h2>Catálogo</h2>
+    <p>Productos seleccionados para llevar un pedacito de nuestra cultura contigo.</p>
+  </div>
+  <div class="products">
+    <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1770782912832-01a3d3d9cc12?auto=format&fit=crop&w=900&q=85" alt="Bolsos artesanales tejidos"></div><div class="product-info"><h3>Bolso artesanal</h3><p>Elaborado con textiles coloridos y detalles inspirados en la tradición guatemalteca.</p><div class="price">Q 185.00</div><button class="add" onclick="addToCart('Bolso artesanal',185)">Agregar al carrito</button></div></article>
+    <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1745510697761-6b0a091b78a6?auto=format&fit=crop&w=900&q=85" alt="Tejido artesanal guatemalteco"></div><div class="product-info"><h3>Textil tradicional</h3><p>Pieza inspirada en el tejido tradicional de Guatemala y elaborada con técnicas artesanales.</p><div class="price">Q 150.00</div><button class="add" onclick="addToCart('Textil tradicional',150)">Agregar al carrito</button></div></article>
+    <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1767476106226-ff48f2e12286?auto=format&fit=crop&w=900&q=85" alt="Cerámica artesanal"></div><div class="product-info"><h3>Cerámica artesanal</h3><p>Piezas de cerámica con formas y acabados que resaltan el trabajo hecho a mano.</p><div class="price">Q 120.00</div><button class="add" onclick="addToCart('Cerámica artesanal',120)">Agregar al carrito</button></div></article>
+    <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1766560360164-6be5d9c4de99?auto=format&fit=crop&w=900&q=85" alt="Pulseras tejidas artesanales"></div><div class="product-info"><h3>Pulsera artesanal</h3><p>Accesorio tejido a mano con colores vivos y patrones llenos de tradición.</p><div class="price">Q 45.00</div><button class="add" onclick="addToCart('Pulsera artesanal',45)">Agregar al carrito</button></div></article>
+    <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1613234281364-0caadd9faf5f?auto=format&fit=crop&w=900&q=85" alt="Mochila artesanal"></div><div class="product-info"><h3>Mochila artesanal</h3><p>Una opción práctica inspirada en el estilo de los accesorios tejidos.</p><div class="price">Q 210.00</div><button class="add" onclick="addToCart('Mochila artesanal',210)">Agregar al carrito</button></div></article>
+    <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1770782912832-01a3d3d9cc12?auto=format&fit=crop&w=900&q=85" alt="Recuerdo artesanal"></div><div class="product-info"><h3>Recuerdo artesanal</h3><p>Un detalle especial para regalar y compartir un pedacito de nuestra cultura.</p><div class="price">Q 65.00</div><button class="add" onclick="addToCart('Recuerdo artesanal',65)">Agregar al carrito</button></div></article>
+    <article class="product featured"><div class="product-img"><img src="https://images.unsplash.com/photo-1649792958314-1aaa9b3833f0?auto=format&fit=crop&w=900&q=85" alt="Sombrero artesanal"></div><div class="product-info"><h3>Sombrero artesanal</h3><p>Accesorio de inspiración tradicional, seleccionado por su estilo natural y artesanal.</p><div class="price">Q 175.00</div><button class="add" onclick="addToCart('Sombrero artesanal',175)">Agregar al carrito</button></div></article>
+  </div>
+</section>
+
+<section class="story">
+  <div class="section-title">
+    <h2>Hecho con historia</h2>
+    <p>Más que un producto, una tradición.</p>
+  </div>
+  <p class="story-text">En Raven's creemos que cada pieza artesanal cuenta una historia. Por eso trabajamos para que el talento de nuestros artesanos llegue a nuevos lugares, manteniendo vivas las técnicas y tradiciones que hacen especial a cada creación.</p>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="section-title">
+    <h2>Contáctanos</h2>
+    <p>Estamos listos para atenderte.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-box">
+      <h3>Información de contacto</h3>
+      <ul>
+        <li><strong>📍 Ubicación:</strong> Guatemala, Guatemala</li>
+        <li><strong>📞 Teléfono:</strong> +502 0000-0000</li>
+        <li><strong>✉️ Correo:</strong> contacto@ravens.gt</li>
+        <li><strong>📱 Instagram:</strong> @ravens.artesanal</li>
+        <li><strong>🕘 Horario:</strong> Lunes a sábado, 9:00 a.m. – 6:00 p.m.</li>
+      </ul>
+    </div>
+    <div class="contact-box">
+      <h3>Envíanos un mensaje</h3>
+      <form onsubmit="sendMessage(event)">
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo electrónico" required>
+        <textarea placeholder="Escribe tu mensaje..." required></textarea>
+        <button class="btn" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© 2026 Raven's — Artesanías con historia. Todos los derechos reservados.</p>
+  <p>Hecho con dedicación para compartir nuestra cultura con el mundo.</p><p style="margin-top:8px;font-size:12px">Fotografías de catálogo: Unsplash, utilizadas bajo su licencia.</p>
+</footer>
+
+<div class="modal" id="cartModal" onclick="closeOutside(event)">
+  <div class="modal-box">
+    <div class="modal-header"><h2>Tu carrito</h2><button class="close" onclick="closeCart()">×</button></div>
+    <div id="cartItems"></div>
+    <div class="total" id="cartTotal">Total: Q 0.00</div>
+    <button class="btn" style="width:100%" onclick="checkout()">Realizar pedido</button>
+  </div>
+</div>
+
+<script>
+let cart=[];
+function addToCart(name,price){
+  cart.push({name,price});
+  updateCart();
+  alert(name+" fue agregado al carrito.");
+}
+function updateCart(){
+  document.getElementById("cartCount").textContent=cart.length;
+  const items=document.getElementById("cartItems");
+  if(!cart.length){items.innerHTML='<p class="empty">Tu carrito está vacío.</p>';document.getElementById("cartTotal").textContent="Total: Q 0.00";return;}
+  items.innerHTML=cart.map((p,i)=>`<div class="cart-item"><span>${p.name}</span><span>Q ${p.price.toFixed(2)} <button onclick="removeItem(${i})" style="border:0;background:none;cursor:pointer">✕</button></span></div>`).join("");
+  document.getElementById("cartTotal").textContent="Total: Q "+cart.reduce((s,p)=>s+p.price,0).toFixed(2);
+}
+function removeItem(i){cart.splice(i,1);updateCart()}
+function openCart(){document.getElementById("cartModal").classList.add("open");updateCart()}
+function closeCart(){document.getElementById("cartModal").classList.remove("open")}
+function closeOutside(e){if(e.target.id==="cartModal")closeCart()}
+function checkout(){
+ if(!cart.length){alert("Agrega al menos un producto al carrito.");return}
+ alert("¡Gracias por tu pedido en Raven's! Esta demostración no procesa pagos reales.");
+}
+function sendMessage(e){e.preventDefault();alert("¡Gracias por contactar a Raven's! Tu mensaje ha sido preparado correctamente.");e.target.reset();}
+updateCart();
+</script>
+</body>
+</html>
